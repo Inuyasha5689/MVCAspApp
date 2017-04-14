@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Routing;
 
 namespace MVCApp
 {
@@ -49,12 +50,21 @@ namespace MVCApp
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            //app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(Configurationroute);
+
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
+        }
+
+        private void Configurationroute(IRouteBuilder obj)
+        {
+            obj.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
