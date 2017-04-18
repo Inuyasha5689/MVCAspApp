@@ -6,11 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MVCApp.Controllers
 {
+    [Route("[Controller]")]
     public class HomeController : Controller
     {
-        public String Index()
+        [Route("[Action]")]
+        public IActionResult Index()
         {
-            return "My MVC Default Route!";
+            return View();
+        }
+
+
+        [Route("[Action]")]
+        public string IdRoute()
+        {
+            return "Attribute Routing";
         }
     }
 }
