@@ -3,7 +3,11 @@
 *@
 @{
 }
-@model MVCApp.Models.MyData
+@model IEnumerable<MVCApp.Models.MyData>
 
-<p>@Model.MyId</p>
-<p>@Model.MyValue</p>
+
+@foreach (var item in Model)
+{
+    <p>Id: @item.MyId</p>
+    <p>Value: @item.MyValue</p>   
+}

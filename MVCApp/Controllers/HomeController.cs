@@ -18,7 +18,13 @@ namespace MVCApp.Controllers
 
         public IActionResult FirstView()
         {
-            var model = new MyData{ MyId = 3, MyValue = "My View"};
+//            var model = new MyData{ MyId = 3, MyValue = "My View"};
+
+            var model = new List<MyData>
+            {
+                new MyData {MyId = 1, MyValue = "First"},
+                new MyData {MyId = 2, MyValue = "Second"}
+            };
 
             return View(model);
         }
