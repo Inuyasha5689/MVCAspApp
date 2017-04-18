@@ -16,7 +16,12 @@ namespace MVCApp.Controllers
             return View();
         }
 
+        public IActionResult FirstView()
+        {
+            var model = new MyData{ MyId = 3, MyValue = "My View"};
 
+            return View(model);
+        }
         
         public ContentResult IdRoute()
         {
