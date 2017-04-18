@@ -3,10 +3,10 @@
 *@
 @{
 }
-@model IEnumerable<MVCApp.Models.MyData>
+@model MVCApp.ViewModels.FirstViewViewModel
 
 
-@foreach (var item in Model)
+@foreach (var item in Model.MyType)
 {
     <p>Id: @item.MyId</p>
     <p>Value: @item.MyValue</p>   

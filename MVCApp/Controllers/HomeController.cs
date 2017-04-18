@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCApp.Models;
+using MVCApp.ViewModels;
 
 namespace MVCApp.Controllers
 {
@@ -26,7 +27,10 @@ namespace MVCApp.Controllers
                 new MyData {MyId = 2, MyValue = "Second"}
             };
 
-            return View(model);
+            var viewmodel = new FirstViewViewModel();
+            viewmodel.MyType = model;
+
+            return View(viewmodel);
         }
         
         public ContentResult IdRoute()
