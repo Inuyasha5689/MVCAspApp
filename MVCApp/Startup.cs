@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing;
+using MVCApp.Services;
 
 namespace MVCApp
 {
@@ -29,6 +30,8 @@ namespace MVCApp
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddApplicationInsightsTelemetry(Configuration);
+            services.AddTransient<IMyInjectedService, MyInjectedService>();
             services.AddMvc();
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCApp.Models;
+using MVCApp.Services;
 using MVCApp.ViewModels;
 
 namespace MVCApp.Controllers
@@ -11,9 +12,16 @@ namespace MVCApp.Controllers
     
     public class HomeController : Controller
     {
-       
+        private IMyInjectedService myService;
+
+        public HomeController(IMyInjectedService myService)
+        {
+            this.myService = myService;
+        }
+
         public IActionResult Index()
         {
+            ViewBag.myObject = this.myService;
             return View();
         }
 
